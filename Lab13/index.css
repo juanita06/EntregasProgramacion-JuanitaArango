@@ -1,0 +1,157 @@
+/* Estilo para el encabezado */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color:#99501b;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color:#d77027;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Estilo para el formulario de ingreso de tareas */
+#task-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;    
+}
+
+#task-input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #c96722;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#task-form button {
+    background-color: #c96722;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: auto;      
+}
+
+.clases {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;   
+    gap: 15px;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 10px;
+    width: 400px;
+    height: auto;
+}
+
+.doing-container {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 10px;
+    width: 400px;
+    height: auto;
+}
+
+.done-container {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    padding: 10px;
+    width: 400px;
+    height: auto;
+}
+
+/* Estilo para las tarjetas de tareas */
+.task-card {
+    background-color:aliceblue;
+    border: 1px solid #c96722;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.task-card p {
+    margin: 0;
+}
+
+.task-card button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.texto {
+    font-family: 'Nunito', sans-serif;
+}
+
+.arriba {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.task-card button.delete-button {
+    display: flex;
+    height: auto;
+    width: 30px;    
+    background-color: transparent;
+    font-weight: 100;
+    color: black;
+    }
+
+.abajo{
+display: flex;
+flex-direction: row-reverse;
+}
+
+.task-card button.move-up-button {
+    display: flex;
+    height: 30px;
+    width: 30px; 
+    background-color: #ec1313;
+    border-radius: 10px;
+}
+
+.task-card button.move-down-button {
+    display: flex;
+    height: 30px;
+    width: 30px; 
+    background-color: #1a56f0;
+    border-radius: 10px;
+}
