@@ -88,12 +88,45 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Función para eliminar la tarjeta
     function deleteTask(card) {
         const currentContainer = card.parentElement;
         currentContainer.removeChild(card);
-        saveTasks(tarea);
+
+        // Guardar las tareas en localStorage
+        saveTasks();
     }
+
+    // Función para guardar las tareas en localStorage
+    function saveTasks() {
+        const tasks = [];
+
+        [todoContainer, doingContainer, doneContainer].forEach(container => {
+            container.querySelectorAll(".task-card").forEach(card => {
+                tasks.push({
+                    text: card.querySelector(".texto").textContent,
+                    status: card.dataset.status,
+                });
+            });
+        });
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    // Función para cargar las tareas desde el almacenamiento local
+    function loadTasks() {
+        const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+        if (tasks) {
+            tasks.forEach(task => {
+                const taskCard = createTaskCard(task.text, task.status);
+                getContainerByStatus(task.status).appendChild(taskCard);
+            });
+        }
+    }
+
+    // Cargar tarjetas desde el localStorage al iniciar la página
+    loadTasks();
+
     // Manejar el envío del formulario
     taskForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -103,25 +136,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const taskCard = createTaskCard(text, "To Do");
             todoContainer.appendChild(taskCard);
             taskInput.value = "";
-           
+
+            // Guardar la tarea en localStorage
+            saveTasks();
         }
-
-        function saveTasks(tarea) {
-
-            const tareas = JSON.parse(localStorage.getItem("tareas")) || {};
-            tareas[tarea.texto] = tarea;
-            localStorage.setItem("tareas", JSON.stringify(tareas));
-          }
-          const tareasGuardadas = JSON.parse(localStorage.getItem("tareas")) || {};
-
-          for (const tareaId in tareasGuardadas) {
-            agregarTarea(tareasGuardadas[tareaId]);
-          }
     });
-
 });
-
-
 
 
 
